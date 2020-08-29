@@ -1,0 +1,2 @@
+/usr/bin/ar qc libroot_tool.a  CMakeFiles/root_tool.dir/home/luoxj/linux/soft/root_tool/src/combine.cc.o CMakeFiles/root_tool.dir/home/luoxj/linux/soft/root_tool/src/dector_data_load.cc.o CMakeFiles/root_tool.dir/home/luoxj/linux/soft/root_tool/src/function_trash.cc.o CMakeFiles/root_tool.dir/home/luoxj/linux/soft/root_tool/src/main_template.cc.o CMakeFiles/root_tool.dir/home/luoxj/linux/soft/root_tool/src/TreeManager.cc.o
+/usr/bin/ranlib libroot_tool.a

@@ -1,0 +1,2 @@
+#! /bin/bash
+root -l /afs/ihep.ac.cn/users/l/luoxj/workfs_juno_5G/root_tool/command/root_Browser.C

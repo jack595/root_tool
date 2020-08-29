@@ -1,0 +1,25 @@
+#!/bin/bash
+if  [ ! -n "$1" ] ;then
+	echo "you should input a parameter,for example,  run test.C"
+	exit 1
+fi
+cp /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists_run.txt /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
+sed -i "s#pwd_target#$(pwd)#g" /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
+sed -i "s#cmake_target#$1#g" /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
+if [ ! -d "build_tmp" ];then
+	mkdir build_tmp
+else
+	rm -r build_tmp
+	mkdir build_tmp
+fi
+cd build_tmp
+cmake /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/ 
+make -j4
+cp $1_exe ..
+cd ..
+./$1_exe
+#rm $1_exe
+#rm -r build_tmp
+#sed -i "s#$1#cmake_target#g" /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
+#sed -i "s#$(pwd)#pwd_target#g" /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
+

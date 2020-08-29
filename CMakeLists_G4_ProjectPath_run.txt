@@ -1,0 +1,81 @@
+
+#----------------------------------------------------------------------------
+# Setup the project
+cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
+project(ProjectName_target)
+
+#----------------------------------------------------------------------------
+# Find Geant4 package, activating all available UI and Vis drivers by default
+# You can set WITH_GEANT4_UIVIS to OFF via the command line or ccmake/cmake-gui
+# to build a batch mode only executable
+#
+
+find_package(ROOT 6 CONFIG REQUIRED COMPONENTS RooFit RooFitCore)
+
+option(WITH_GEANT4_UIVIS "Build example with Geant4 UI and Vis drivers" ON)
+if(WITH_GEANT4_UIVIS)
+  find_package(Geant4 REQUIRED ui_all vis_all)
+else()
+  find_package(Geant4 REQUIRED)
+endif()
+
+#----------------------------------------------------------------------------
+# Setup Geant4 include directories and compile definitions
+# Setup include directory for this project
+#
+include(${Geant4_USE_FILE})
+include_directories(${ROOT_INCLUDE_DIRS})
+include_directories(${ROOT_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}/include)
+
+
+#----------------------------------------------------------------------------
+# Locate sources and headers for this project
+# NB: headers are included so they will show up in IDEs
+#
+file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
+file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
+
+#----------------------------------------------------------------------------
+# Add root_tool library
+add_subdirectory(root_tool )
+
+#----------------------------------------------------------------------------
+# Add the executable, and link it to the Geant4 libraries
+#
+add_executable(C_File_target C_File_target.cc ${sources} ${headers} ${ROOT_INCLUDE_DIRS})
+target_link_libraries(C_File_target ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} root_tool)
+
+#----------------------------------------------------------------------------
+# Copy all scripts to the build directory, i.e. the directory in which we
+# build ProjectName_target. This is so that we can run the executable directly because it
+# relies on these scripts being in the current working directory.
+#
+set(C_File_target_SCRIPTS
+  C_File_target.in
+  C_File_target.out
+  init_vis.mac
+  run1.mac
+  run2.mac
+  vis.mac
+  )
+
+foreach(_script ${C_File_target_SCRIPTS})
+  configure_file(
+    ${PROJECT_SOURCE_DIR}/${_script}
+    ${PROJECT_BINARY_DIR}/${_script}
+    COPYONLY
+    )
+endforeach()
+
+#----------------------------------------------------------------------------
+# For internal Geant4 use - but has no effect if you build this
+# example standalone
+#
+add_custom_target(ProjectName_target DEPENDS C_File_target)
+
+#----------------------------------------------------------------------------
+# Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
+#
+install(TARGETS C_File_target DESTINATION bin)
+
+

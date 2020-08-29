@@ -1,0 +1,13 @@
+TCPKeepALive=yes 
+ServerAliveInterval 300
+Host lxslc6* lxslc7*
+User luoxj
+Hostname %h.ihep.ac.cn 
+port 22
+ForwardX11 yes
+ForwardX11Trusted yes 
+PreferredAuthentications keyboard-interactive,password,publickey 
+ControlPath ~/.ssh/master-%l-%r@%h:%p 
+ControlMaster auto 
+ControlPersist 60
+#this config file is to auto login the ihep_ssh account,keep the account active all the time.Therefore, putting this file into ~/.ssh,we are able to login with command "ssh -Y luoxj@lxslc6" without needing password 

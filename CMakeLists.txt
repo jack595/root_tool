@@ -1,0 +1,34 @@
+cmake_minimum_required (VERSION 2.8)
+
+project(root_toolkit)
+set(name "script1.C")
+set(name_pwd "/afs/ihep.ac.cn/users/l/luoxj/reconstrution")
+
+aux_source_directory(. dir_plot)
+add_definitions(-std=c++11)
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+# Find ROOT
+#find_package(ROOT QUIET)
+find_package(ROOT 6 CONFIG REQUIRED COMPONENTS RooFit RooFitCore)
+if(WITH_GEANT4_UIVIS)
+  find_package(Geant4 REQUIRED ui_all vis_all)
+else()
+  find_package(Geant4 REQUIRED)
+endif()
+set(CMAKE_MODULE_PATH ${Geant4_DIR}/Modules)
+if(NOT ROOT_FOUND)
+        message(STATUS "ROOT package not found.")
+        return()
+endif()
+include_directories(${ROOT_INCLUDE_DIRS})
+include_directories( ${ROOT_INCLUDE_DIR} ${Geant4_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}/include )
+
+file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
+#file(GLOB my_sources ${PROJECT_SOURCE_DIR}/my_src/*.c*)
+file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
+#file(GLOB my_headers ${PROJECT_SOURCE_DIR}/my_include/*.h*)
+
+#target_link_libraries(root-config --cflags --libs)
+add_executable(${name}_exe ${name_pwd}/${name} ${ROOT_INCLUDE_DIRS} ${my_sources} ${my_headers} ${sources} ${headers})
+target_link_libraries(${name}_exe  ${ROOT_LIBRARIES} ${include} ${src} ${my_sources} ${my_headers})

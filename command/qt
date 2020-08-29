@@ -1,0 +1,9 @@
+#!/bin/bash
+if  [ ! -n "$1" ] ;then
+	echo "you should input a parameter,for example,  run test.C"
+	exit 1
+fi
+cp /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists_run.txt /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
+sed -i "s#pwd_target#$(pwd)#g" /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
+sed -i "s#cmake_target#$1#g" /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
+qtcreator /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt&

@@ -1,0 +1,11 @@
+commands' location:/afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool
+
+The First line of this file "ReadMe" is to provide the path of the current owner, which is really essential for the installing process.
+
+This command dirtionarfy is to make the usage of root easier,you can add function at "include" dirtionary.
+And use this function at the file that you want to cmake
+"run filename" is to cmake and make the file you first cmake.
+After cmaking ,you can go to "build_tmp" to make it directly,So you can use command "again filename" make this operation more quickly and easier.
+And "qt filename" is to use qtcreator to edit the file more convinient.use the "root_tool" dirtionary's "CMakeList.txt" to cmake the editor.
+What is important is,in the "root_tool" dirtionary ,CMakeList_run.txt is to make the command to work properly ,so don't rm it anytime.
+"qt_all"useing another CMakeList.txt,which is placed in dirctionary "CMakeLists_dir",is to check all the file in the same dirtionary.

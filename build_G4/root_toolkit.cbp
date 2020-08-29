@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="root_toolkit" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\soft\;CMake Files\..\..\..\soft\root\;CMake Files\..\..\..\soft\root\cmake\;CMake Files\..\..\..\soft\g4\;CMake Files\..\..\..\soft\g4\geant4.10.05-install\;CMake Files\..\..\..\soft\g4\geant4.10.05-install\lib\;CMake Files\..\..\..\soft\g4\geant4.10.05-install\lib\Geant4-10.5.1\;CMake Files\..\..\..\soft\g4\geant4.10.05-install\lib\Geant4-10.5.1\Modules\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\home\;CMake Files\..\..\..\..\..\..\home\luoxj\;CMake Files\..\..\..\..\..\..\home\luoxj\linux\;CMake Files\..\..\..\..\..\..\home\luoxj\linux\soft\;CMake Files\..\..\..\..\..\..\home\luoxj\linux\soft\root_tool\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/luoxj/linux/soft/root_tool/build_G4" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="combine.C_exe">
+         <Option output="/home/luoxj/linux/soft/root_tool/build_G4/combine.C_exe" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/luoxj/linux/soft/root_tool/build_G4" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DG4_STORE_TRAJECTORY" />
+            <Add option="-DG4VERBOSE" />
+            <Add option="-DG4UI_USE" />
+            <Add option="-DG4VIS_USE" />
+            <Add option="-DG4UI_USE_TCSH" />
+            <Add option="-DG4INTY_USE_XT" />
+            <Add option="-DG4VIS_USE_RAYTRACERX" />
+            <Add option="-DG4INTY_USE_QT" />
+            <Add option="-DG4UI_USE_QT" />
+            <Add option="-DG4VIS_USE_OPENGLQT" />
+            <Add option="-DG4VIS_USE_OPENGLX" />
+            <Add option="-DG4VIS_USE_OPENGL" />
+            <Add directory="/home/luoxj/linux/soft/root_tool/include" />
+            <Add directory="/mnt/c/my_linux/my_work/G4_homework/hw/include" />
+            <Add directory="/mnt/c/my_linux/soft/g4/geant4.10.05-install/include/Geant4" />
+            <Add directory="/mnt/c/my_linux/soft/root/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/qt4" />
+            <Add directory="/usr/include/qt4/QtCore" />
+            <Add directory="/usr/include/qt4/QtGui" />
+            <Add directory="/usr/include/qt4/QtOpenGL" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 combine.C_exe" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="combine.C_exe/fast">
+         <Option output="/home/luoxj/linux/soft/root_tool/build_G4/combine.C_exe" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/luoxj/linux/soft/root_tool/build_G4" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DG4_STORE_TRAJECTORY" />
+            <Add option="-DG4VERBOSE" />
+            <Add option="-DG4UI_USE" />
+            <Add option="-DG4VIS_USE" />
+            <Add option="-DG4UI_USE_TCSH" />
+            <Add option="-DG4INTY_USE_XT" />
+            <Add option="-DG4VIS_USE_RAYTRACERX" />
+            <Add option="-DG4INTY_USE_QT" />
+            <Add option="-DG4UI_USE_QT" />
+            <Add option="-DG4VIS_USE_OPENGLQT" />
+            <Add option="-DG4VIS_USE_OPENGLX" />
+            <Add option="-DG4VIS_USE_OPENGL" />
+            <Add directory="/home/luoxj/linux/soft/root_tool/include" />
+            <Add directory="/mnt/c/my_linux/my_work/G4_homework/hw/include" />
+            <Add directory="/mnt/c/my_linux/soft/g4/geant4.10.05-install/include/Geant4" />
+            <Add directory="/mnt/c/my_linux/soft/root/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/qt4" />
+            <Add directory="/usr/include/qt4/QtCore" />
+            <Add directory="/usr/include/qt4/QtGui" />
+            <Add directory="/usr/include/qt4/QtOpenGL" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 combine.C_exe/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/luoxj/linux/soft/root_tool/build_G4/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/FFT.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/ReadTree.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/TH1_tool.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/TH2F_tool.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/TreeManager.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/base_transform.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/calculus.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/combine.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/cut_criterion.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/data_type_transform.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/get_bash_environment_par.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/plot.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/project_function.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/rootlogon.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/save_load_file.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/type_transform.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/include/vec_op.hh">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/src/TreeManager.cc">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/src/combine.cc">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/src/dector_data_load.cc">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/src/function_trash.cc">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/linux/soft/root_tool/src/main_template.cc">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/home/luoxj/root_tool/combine.C">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/soft/root/include">
+         <Option target="combine.C_exe"/>
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/exampleB1.in">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/exampleB1.out">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/init_vis.mac">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/run1.mac">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/run2.mac">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/vis.mac">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/root/cmake/ROOTConfig-version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\root\cmake\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/root/cmake/ROOTConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\root\cmake\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/root/cmake/ROOTConfig-targets.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\root\cmake\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/root/cmake/ROOTConfig-targets-release.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\root\cmake\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/root/cmake/ROOTConfig-version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\root\cmake\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/root/cmake/ROOTConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\root\cmake\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/root/cmake/ROOTConfig-targets.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\root\cmake\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/root/cmake/ROOTConfig-version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\root\cmake\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/root/cmake/ROOTConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\root\cmake\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/root/cmake/ROOTConfig-targets.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\root\cmake\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/g4/geant4.10.05-install/lib/Geant4-10.5.1/Geant4ConfigVersion.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\g4\geant4.10.05-install\lib\Geant4-10.5.1\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/g4/geant4.10.05-install/lib/Geant4-10.5.1/Geant4Config.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\g4\geant4.10.05-install\lib\Geant4-10.5.1\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/g4/geant4.10.05-install/lib/Geant4-10.5.1/Geant4LibraryDepends.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\g4\geant4.10.05-install\lib\Geant4-10.5.1\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/g4/geant4.10.05-install/lib/Geant4-10.5.1/Geant4LibraryDepends-release.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\g4\geant4.10.05-install\lib\Geant4-10.5.1\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/g4/geant4.10.05-install/lib/Geant4-10.5.1/UseGeant4.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\g4\geant4.10.05-install\lib\Geant4-10.5.1\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../soft/g4/geant4.10.05-install/lib/Geant4-10.5.1/Modules/IntelCompileFeatures.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\soft\g4\geant4.10.05-install\lib\Geant4-10.5.1\Modules\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../../../../home/luoxj/linux/soft/root_tool/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\home\luoxj\linux\soft\root_tool\" />
+      </Unit>
+      <Unit filename="/mnt/c/my_linux/my_work/G4_homework/hw/../../../../../../home/luoxj/linux/soft/root_tool/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\home\luoxj\linux\soft\root_tool\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>
