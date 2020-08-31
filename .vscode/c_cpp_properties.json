@@ -13,7 +13,7 @@
             "cStandard": "c99",
             "cppStandard": "c++14",
             "intelliSenseMode": "clang-x64",
-            "compileCommands": "/workfs/juno/luoxj/root_tool/compile_commands.json"
+            // "compileCommands": "/workfs/juno/luoxj/root_tool/compile_commands.json"
         }
     ],
     "version": 4

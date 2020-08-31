@@ -168,7 +168,7 @@ void mutiplot_errorbar(std::vector<vector<T>> x_series,std::vector<vector<T>> y_
 void test_plot()
 {
     std::vector<Double_t> x;
-	for(int i=310;i<430;i+=10)x.push_back(i);
+for(int i=310;i<430;i+=10)x.push_back(i);
 	std::vector<Double_t> y{55.62,89.04,137.44,209.71,317.91,482.15,726.78,1105.6,1664.75,2490.30,3467.75,5303.04};
     std::vector<Double_t> ex(x.size(),5);
     std::vector<Double_t> ey{17.18,25.65,39.82,55.15,75.06,103.54,\
@@ -197,6 +197,7 @@ g->Delete();
 //  ..........  ......... ..........
 void plot_into_pdf(vector<vector<TH1D*>> v2D_TH1D, const TString name_savePDF="figout.pdf")
 {
+    cout<< "Plotting into PDF......" <<endl;
     //Initial the TCanvas and get the relative pars.
     int n_comlum=v2D_TH1D[0].size();
     int n_line=v2D_TH1D.size();
@@ -206,21 +207,20 @@ void plot_into_pdf(vector<vector<TH1D*>> v2D_TH1D, const TString name_savePDF="f
     // TCanvas* c1 = new TCanvas("c1", "c1",800, 600);
     // v2D_TH1D[1][1]->DrawCopy();
     
-    
     TCanvas* outc = new TCanvas("outc", "outc",800 * n_comlum, 600);
     outc->Divide(n_comlum,1);
     outc->Print(name_savePDF+"[");
 
     //Loop to Draw the TH1 into the pdf
-    for (int i = 0; i < n_line-1; i++)
+    for (int i = 0; i < n_line  ; i++)
     {
-        for (int j = 0; j < n_comlum; j++)
+        for (int j = 0; j < v2D_TH1D[i].size(); j++)
         {
             outc->cd(j+1);
-            v2D_TH1D[i][j]->DrawCopy();
+            v2D_TH1D[i][j]->DrawCopy("l");
         }
         
-        // cout<< i <<endl;
+        cout<< i <<endl;
         outc->Print(name_savePDF);
         outc->Clear();
         outc->Divide(n_comlum,1);
@@ -229,4 +229,37 @@ void plot_into_pdf(vector<vector<TH1D*>> v2D_TH1D, const TString name_savePDF="f
     
     //End the process of outputting to pdf
     outc->Print(name_savePDF+"]");
+}
+
+//This function is to reform the 1D vector of TH1Ds into 2D vector, then input to the function "plot_into_pdf(vector<vector<TH1D*>>)"
+void plot_into_pdf( vector<TH1D*> v1D_TH1D, const TString name_savePDF="figout.pdf", const int n_comlum_Format=4 )
+{
+    //Reformming v1D_TH1D
+    vector<vector<TH1D*>> v2D_TH1D( v1D_TH1D.size()/n_comlum_Format+1 );
+    for (int i = 0; i < v1D_TH1D.size() ; i++)
+    {
+        v2D_TH1D[ i/n_comlum_Format ].push_back( v1D_TH1D[i] );   
+    }
+    plot_into_pdf( v2D_TH1D, name_savePDF );
+          
+}
+
+void test_plot_into_pdf()
+{
+    const int n_line_to_pdf=2;
+    vector<vector<TH1D*>> v2D_TH1D_toPDF(n_line_to_pdf);
+    TH1D* h = new TH1D("h","h",100,0,100);
+    for (int i = 0; i < 1000; i++)
+    {
+        h->Fill(i);
+    }
+    for (int j = 0; j < 3; j++)
+    {
+        v2D_TH1D_toPDF[0].push_back((TH1D*) h->Clone( "wd" ));
+        // v2D_TH1D_toPDF[0].push_back((TH1D*) h->Clone(  (TString)n2str(j)+"wd" )));
+        v2D_TH1D_toPDF[1].push_back(h);
+    }
+    v2D_TH1D_toPDF.resize(n_line_to_pdf);
+    plot_into_pdf(v2D_TH1D_toPDF);
+
 }
