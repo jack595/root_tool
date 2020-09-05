@@ -37,6 +37,7 @@
 *.root
 *.0
 ./build_tmp/**
+./build_G4/**
 
 
 #command
