@@ -6,14 +6,14 @@
 #include<TString.h>
 using namespace std;
 template <class T>
-std::string n2str(T num)
+TString n2str(T num)
 {
 using namespace std;
 /*this function is used to transform number (such as int,float and double)into string */
 
     stringstream ss;
     ss<<num;
-    return ss.str();
+    return (TString)ss.str();
 }
 
 template <class T>

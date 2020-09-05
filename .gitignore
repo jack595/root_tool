@@ -37,6 +37,11 @@
 *.root
 *.0
 ./build_tmp/**
+
+
+#command
+./command/**
+./install/**
 =======
 CMakeLists.txt.user
 CMakeCache.txt

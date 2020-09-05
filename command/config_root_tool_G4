@@ -12,9 +12,9 @@ if [ -L root_tool ]; then
 	echo "Removed symbolic link 'root_tool'"
 	/bin/rm root_tool
 fi
-	ln -s /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool .
-cp /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists_G4_here_run.txt /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
-cp /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists_G4_ProjectPath_run.txt $(pwd)/CMakeLists.txt
+	ln -s /afs/ihep.ac.cn/users/l/luoxj/root_tool .
+cp /afs/ihep.ac.cn/users/l/luoxj/root_tool/CMakeLists_G4_here_run.txt /afs/ihep.ac.cn/users/l/luoxj/root_tool/CMakeLists.txt
+cp /afs/ihep.ac.cn/users/l/luoxj/root_tool/CMakeLists_G4_ProjectPath_run.txt $(pwd)/CMakeLists.txt
 
 sed -i "s#C_File_target#${file_name%.*}#g" $(pwd)/CMakeLists.txt
 
@@ -34,7 +34,7 @@ cd build
 cmake ..
 make -j4
 
-cp /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/command/job_G4.sh .
+cp /afs/ihep.ac.cn/users/l/luoxj/root_tool/command/job_G4.sh .
 sed -i "s#C_File_target#${file_name%.*}#g" ./job_G4.sh
 
 echo "Configure done! You are able to use"
@@ -45,6 +45,6 @@ echo "To make and run the project!"
 #./$1_exe
 ##rm $1_exe
 #rm -r build_tmp
-#sed -i "s#$1#cmake_target#g" /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
-#sed -i "s#$(pwd)#pwd_target#g" /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/CMakeLists.txt
+#sed -i "s#$1#cmake_target#g" /afs/ihep.ac.cn/users/l/luoxj/root_tool/CMakeLists.txt
+#sed -i "s#$(pwd)#pwd_target#g" /afs/ihep.ac.cn/users/l/luoxj/root_tool/CMakeLists.txt
 

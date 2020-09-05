@@ -3,6 +3,6 @@ if  [ ! -n "$1" ] ;then
         echo "you should input a parameter,for example,  mv_root_tool test.hh, And this command should be excute in the Geant4's include_dir"
         exit 1
 fi
-mv -i $1 /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/include 
+mv -i $1 /afs/ihep.ac.cn/users/l/luoxj/root_tool/include 
 file_name=$1
-mv -i ../src/${file_name%.*}.cc /afs/ihep.ac.cn/users/l/luoxj/workfs_5G/root_tool/src
+mv -i ../src/${file_name%.*}.cc /afs/ihep.ac.cn/users/l/luoxj/root_tool/src

@@ -1,4 +1,5 @@
 #pragma once
+#include<TH2D.h>
 #include "TH1D.h"
 #include<TTree.h>
 #include<TFile.h>
@@ -217,7 +218,9 @@ void plot_into_pdf(vector<vector<TH1D*>> v2D_TH1D, const TString name_savePDF="f
         for (int j = 0; j < v2D_TH1D[i].size(); j++)
         {
             outc->cd(j+1);
-            v2D_TH1D[i][j]->DrawCopy("l");
+            // v2D_TH1D[i][j]->GetYaxis()->SetLimits( v2D_TH1D[i][j]->GetMinimum(), v2D_TH1D[i][j]->GetMaximum() );
+            // cout<<"check Min and Max:   "<<v2D_TH1D[i][j]->GetMinimumBin()<< "   "<< v2D_TH1D[i][j]->GetMaximum()<<endl; 
+            v2D_TH1D[i][j]->DrawCopy();
         }
         
         cout<< i <<endl;
@@ -241,6 +244,67 @@ void plot_into_pdf( vector<TH1D*> v1D_TH1D, const TString name_savePDF="figout.p
         v2D_TH1D[ i/n_comlum_Format ].push_back( v1D_TH1D[i] );   
     }
     plot_into_pdf( v2D_TH1D, name_savePDF );
+          
+}
+
+void plot_into_pdf(TH1D* h_toPDF, const TString name_savePDF="figout.pdf")
+{
+    vector<vector<TH1D*>> v2D_TH1D(1);
+    v2D_TH1D[0].push_back(h_toPDF);
+    plot_into_pdf(v2D_TH1D,name_savePDF);
+}
+
+void plot_into_pdf(vector<vector<TH2D*>> v2D_h2D_toPDF, const TString name_savePDF="figout.pdf")
+{
+    cout<< "Plotting into PDF......" <<endl;
+    //Initial the TCanvas and get the relative pars.
+    int n_comlum=v2D_h2D_toPDF[0].size();
+    int n_line=v2D_h2D_toPDF.size();
+    cout<< "n_comlum:   " <<n_comlum<< "    n_line:   "<<n_line<<endl;
+
+    TCanvas* outc = new TCanvas("outc", "outc",800 * n_comlum, 600);
+    outc->Divide(n_comlum,1);
+    outc->Print(name_savePDF+"[");
+
+    //Loop to Draw the TH1 into the pdf
+    for (int i = 0; i < n_line  ; i++)
+    {
+        for (int j = 0; j < v2D_h2D_toPDF[i].size(); j++)
+        {
+            outc->cd(j+1);
+            // v2D_TH1D[i][j]->GetYaxis()->SetLimits( v2D_TH1D[i][j]->GetMinimum(), v2D_TH1D[i][j]->GetMaximum() );
+            // cout<<"check Min and Max:   "<<v2D_TH1D[i][j]->GetMinimumBin()<< "   "<< v2D_TH1D[i][j]->GetMaximum()<<endl; 
+            v2D_h2D_toPDF[i][j]->DrawCopy("colz");
+        }
+        
+        cout<< i <<endl;
+        outc->Print(name_savePDF);
+        outc->Clear();
+        outc->Divide(n_comlum,1);
+        
+    }
+    
+    //End the process of outputting to pdf
+    outc->Print(name_savePDF+"]");    
+}
+
+void plot_into_pdf(TH2D* h_toPDF, const TString name_savePDF="figout.pdf")
+{
+    vector<vector<TH2D*>> v2D_TH2D(1);
+    v2D_TH2D[0].push_back(h_toPDF);
+    plot_into_pdf(v2D_TH2D,name_savePDF);
+}
+
+//This function is to reform the 1D vector of TH1Ds into 2D vector, then input to the function "plot_into_pdf(vector<vector<TH1D*>>)"
+void plot_into_pdf( vector<TH2D*> v1D_TH2D, const TString name_savePDF="figout.pdf", const int n_comlum_Format=4 )
+{
+    //Reformming v1D_TH1D
+    vector<vector<TH2D*>> v2D_TH2D( v1D_TH2D.size()/n_comlum_Format+1 );
+    for (int i = 0; i < v1D_TH2D.size() ; i++)
+    {
+        v2D_TH2D[ i/n_comlum_Format ].push_back( v1D_TH2D[i] );   
+    }
+    plot_into_pdf( v2D_TH2D, name_savePDF );
           
 }
 

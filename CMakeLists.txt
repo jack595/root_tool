@@ -1,8 +1,8 @@
 cmake_minimum_required (VERSION 2.8)
 
 project(root_toolkit)
-set(name "script1.C")
-set(name_pwd "/afs/ihep.ac.cn/users/l/luoxj/reconstrution")
+set(name "test_ve.C")
+set(name_pwd "/afs/ihep.ac.cn/users/l/luoxj/root_tool")
 
 aux_source_directory(. dir_plot)
 add_definitions(-std=c++11)

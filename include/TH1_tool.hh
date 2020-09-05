@@ -2,7 +2,7 @@
 #pragma once
 #include<TH1F.h>
 #include<TString.h>
-#include<type_transform.hh>
+#include"type_transform.hh"
 #include<TF1.h>
 #include "TH1D.h"
 //if TH1F want to add legend,we can use c->BuidLegend,where c is TCanvas,and use h->SetTitle to set the entries.
@@ -70,6 +70,22 @@ std::vector<float> Max_subbin(TH1F *h1,float min_range,float max_range)
     float max_bin=h->GetMaximumBin();
     max_loc=h->GetBinCenter(max_bin);
     std::vector<float> max_series={max_loc,max};
+    h->GetXaxis()->SetRangeUser(h_min_bin,h_max_bin);
+    return max_series;
+}
+std::vector<double> Max_subbin(TH1D *h1,double min_range,double max_range)
+{
+//this function is used to find the maxmium point's location of histgram,return(x_max,y_min)
+    double max,max_loc;
+    TH1D *h=(TH1D*) h1;
+    int h_min_bin=h1->GetXaxis()->GetXmin();
+    int h_max_bin=h1->GetXaxis()->GetXmax();
+    h->GetXaxis()->SetRangeUser(min_range,max_range);
+//    h->Draw();
+    max=h->GetMaximum();
+    double max_bin=h->GetMaximumBin();
+    max_loc=h->GetBinCenter(max_bin);
+    std::vector<double> max_series={max_loc,max};
     h->GetXaxis()->SetRangeUser(h_min_bin,h_max_bin);
     return max_series;
 }
