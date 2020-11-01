@@ -17,8 +17,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
-  "/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/include"
-  "/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/Geant4/10.04.p02/include/Geant4"
+  "/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/include"
+  "/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/Geant4/10.04.p02/include/Geant4"
   )
 
 # Targets to which this target links.

@@ -36,6 +36,9 @@ default_target: all
 .SUFFIXES: .hpux_make_needs_suffix_list
 
 
+# Command-line flag to silence nested $(MAKE).
+$(VERBOSE)MAKESILENT = -s
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -52,10 +55,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-branch/ExternalLibs/Cmake/3.17.0/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake3
 
 # The command to remove a file.
-RM = /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-branch/ExternalLibs/Cmake/3.17.0/bin/cmake -E rm -f
+RM = /usr/bin/cmake3 -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -89,15 +92,15 @@ clean: CMakeFiles/test_ve.C_exe.dir/clean
 
 # All Build rule for target.
 CMakeFiles/test_ve.C_exe.dir/all:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/depend
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/build
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/afs/ihep.ac.cn/users/l/luoxj/root_tool/build_tmp/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target test_ve.C_exe"
 .PHONY : CMakeFiles/test_ve.C_exe.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_ve.C_exe.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /afs/ihep.ac.cn/users/l/luoxj/root_tool/build_tmp/CMakeFiles 8
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_ve.C_exe.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_ve.C_exe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /afs/ihep.ac.cn/users/l/luoxj/root_tool/build_tmp/CMakeFiles 0
 .PHONY : CMakeFiles/test_ve.C_exe.dir/rule
 
@@ -108,7 +111,7 @@ test_ve.C_exe: CMakeFiles/test_ve.C_exe.dir/rule
 
 # clean rule for target.
 CMakeFiles/test_ve.C_exe.dir/clean:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/clean
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/clean
 .PHONY : CMakeFiles/test_ve.C_exe.dir/clean
 
 #=============================================================================

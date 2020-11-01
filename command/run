@@ -12,12 +12,7 @@ else
 	rm -r build_tmp
 	mkdir build_tmp
 fi
-cd build_tmp
-cmake /afs/ihep.ac.cn/users/l/luoxj/root_tool/ 
-make -j4
-cp $1_exe ..
-cd ..
-./$1_exe
+cd build_tmp && cmake3 /afs/ihep.ac.cn/users/l/luoxj/root_tool/ && make -j4 && cp $1_exe .. && cd .. && ./$1_exe
 #rm $1_exe
 #rm -r build_tmp
 #sed -i "s#$1#cmake_target#g" /afs/ihep.ac.cn/users/l/luoxj/root_tool/CMakeLists.txt

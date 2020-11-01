@@ -1,0 +1,42 @@
+#!/bin/bash
+if  [ ! -n "$1" ] ;then
+	echo "You should input a parameter which is the name of the project,for example, new_project Deconvolution_Real_Wave  "
+	exit 1
+fi
+
+project_name=$1
+
+if [ ! -d root_tool ]; then
+    mkdir root_tool
+fi
+mkdir ./root_tool/include
+mkdir ./root_tool/src
+cp /afs/ihep.ac.cn/users/l/luoxj/root_tool/CMakeLists_G4_here_run.txt ./root_tool/CMakeLists.txt
+cp /afs/ihep.ac.cn/users/l/luoxj/root_tool/src/main_template ./main.cpp 
+cp /afs/ihep.ac.cn/users/l/luoxj/root_tool/CMakeLists_my_ROOT_Project.txt $(pwd)/CMakeLists.txt
+
+sed -i "s#ProjectName_target#$project_name#g" $(pwd)/CMakeLists.txt
+
+
+if [ ! -d "build_tmp" ];then
+	mkdir build_tmp
+else
+	/bin/rm -rf build_tmp
+	mkdir build_tmp
+fi
+cd build_tmp
+cmake ..
+make -j4
+
+
+echo "Configure done! You are able to use"
+echo "again main.cpp "
+echo "To make and run the project!"
+#cp $1_exe ..
+#cd ..
+#./$1_exe
+##rm $1_exe
+#rm -r build_tmp
+#sed -i "s#$1#cmake_target#g" /afs/ihep.ac.cn/users/l/luoxj/root_tool/CMakeLists.txt
+#sed -i "s#$(pwd)#pwd_target#g" /afs/ihep.ac.cn/users/l/luoxj/root_tool/CMakeLists.txt
+

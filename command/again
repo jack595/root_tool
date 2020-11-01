@@ -4,8 +4,5 @@ if  [ ! -n "$1" ] ;then
 	exit 1
 fi
 cd $(pwd)/build_tmp
-make -j4
-cp $1_exe ..
-cd ..
-./$1_exe
+make -j4 && cp $1_exe .. && cd .. && ./$1_exe
 #rm $1_exe

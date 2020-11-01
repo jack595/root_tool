@@ -35,6 +35,9 @@
 .SUFFIXES: .hpux_make_needs_suffix_list
 
 
+# Command-line flag to silence nested $(MAKE).
+$(VERBOSE)MAKESILENT = -s
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -51,10 +54,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-branch/ExternalLibs/Cmake/3.17.0/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake3
 
 # The command to remove a file.
-RM = /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-branch/ExternalLibs/Cmake/3.17.0/bin/cmake -E rm -f
+RM = /usr/bin/cmake3 -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -186,26 +189,26 @@ test_ve.C_exe: CMakeFiles/test_ve.C_exe.dir/src/dector_data_load.cc.o
 test_ve.C_exe: CMakeFiles/test_ve.C_exe.dir/src/function_trash.cc.o
 test_ve.C_exe: CMakeFiles/test_ve.C_exe.dir/src/main_template.cc.o
 test_ve.C_exe: CMakeFiles/test_ve.C_exe.dir/build.make
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libCore.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libImt.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libRIO.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libNet.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libHist.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libGraf.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libGraf3d.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libGpad.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libROOTDataFrame.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libTree.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libTreePlayer.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libRint.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libPostscript.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libMatrix.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libPhysics.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libMathCore.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libThread.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libMultiProc.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libRooFit.so
-test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/lib/libRooFitCore.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libCore.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libImt.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libRIO.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libNet.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libHist.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libGraf.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libGraf3d.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libGpad.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libROOTDataFrame.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libTree.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libTreePlayer.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libRint.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libPostscript.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libMatrix.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libPhysics.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libMathCore.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libThread.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libMultiProc.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libRooFit.so
+test_ve.C_exe: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/lib/libRooFitCore.so
 test_ve.C_exe: CMakeFiles/test_ve.C_exe.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/ihep.ac.cn/users/l/luoxj/root_tool/build_tmp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable test_ve.C_exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_ve.C_exe.dir/link.txt --verbose=$(VERBOSE)

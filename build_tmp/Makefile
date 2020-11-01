@@ -40,6 +40,9 @@ default_target: all
 .SUFFIXES: .hpux_make_needs_suffix_list
 
 
+# Command-line flag to silence nested $(MAKE).
+$(VERBOSE)MAKESILENT = -s
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -56,10 +59,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-branch/ExternalLibs/Cmake/3.17.0/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake3
 
 # The command to remove a file.
-RM = /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-branch/ExternalLibs/Cmake/3.17.0/bin/cmake -E rm -f
+RM = /usr/bin/cmake3 -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -76,7 +79,7 @@ CMAKE_BINARY_DIR = /afs/ihep.ac.cn/users/l/luoxj/root_tool/build_tmp
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-branch/ExternalLibs/Cmake/3.17.0/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake3 --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-branch/ExternalLibs/Cmake/3.17.0/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/ccmake3 -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -98,13 +101,13 @@ edit_cache/fast: edit_cache
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /afs/ihep.ac.cn/users/l/luoxj/root_tool/build_tmp/CMakeFiles /afs/ihep.ac.cn/users/l/luoxj/root_tool/build_tmp/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /afs/ihep.ac.cn/users/l/luoxj/root_tool/build_tmp/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -114,12 +117,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -132,12 +135,12 @@ depend:
 
 # Build rule for target.
 test_ve.C_exe: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_ve.C_exe
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_ve.C_exe
 .PHONY : test_ve.C_exe
 
 # fast build rule for target.
 test_ve.C_exe/fast:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/build
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/build
 .PHONY : test_ve.C_exe/fast
 
 src/LoadTreeToRooDataSet.o: src/LoadTreeToRooDataSet.cc.o
@@ -146,7 +149,7 @@ src/LoadTreeToRooDataSet.o: src/LoadTreeToRooDataSet.cc.o
 
 # target to build an object file
 src/LoadTreeToRooDataSet.cc.o:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/LoadTreeToRooDataSet.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/LoadTreeToRooDataSet.cc.o
 .PHONY : src/LoadTreeToRooDataSet.cc.o
 
 src/LoadTreeToRooDataSet.i: src/LoadTreeToRooDataSet.cc.i
@@ -155,7 +158,7 @@ src/LoadTreeToRooDataSet.i: src/LoadTreeToRooDataSet.cc.i
 
 # target to preprocess a source file
 src/LoadTreeToRooDataSet.cc.i:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/LoadTreeToRooDataSet.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/LoadTreeToRooDataSet.cc.i
 .PHONY : src/LoadTreeToRooDataSet.cc.i
 
 src/LoadTreeToRooDataSet.s: src/LoadTreeToRooDataSet.cc.s
@@ -164,7 +167,7 @@ src/LoadTreeToRooDataSet.s: src/LoadTreeToRooDataSet.cc.s
 
 # target to generate assembly for a file
 src/LoadTreeToRooDataSet.cc.s:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/LoadTreeToRooDataSet.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/LoadTreeToRooDataSet.cc.s
 .PHONY : src/LoadTreeToRooDataSet.cc.s
 
 src/TreeManager.o: src/TreeManager.cc.o
@@ -173,7 +176,7 @@ src/TreeManager.o: src/TreeManager.cc.o
 
 # target to build an object file
 src/TreeManager.cc.o:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/TreeManager.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/TreeManager.cc.o
 .PHONY : src/TreeManager.cc.o
 
 src/TreeManager.i: src/TreeManager.cc.i
@@ -182,7 +185,7 @@ src/TreeManager.i: src/TreeManager.cc.i
 
 # target to preprocess a source file
 src/TreeManager.cc.i:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/TreeManager.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/TreeManager.cc.i
 .PHONY : src/TreeManager.cc.i
 
 src/TreeManager.s: src/TreeManager.cc.s
@@ -191,7 +194,7 @@ src/TreeManager.s: src/TreeManager.cc.s
 
 # target to generate assembly for a file
 src/TreeManager.cc.s:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/TreeManager.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/TreeManager.cc.s
 .PHONY : src/TreeManager.cc.s
 
 src/combine.o: src/combine.cc.o
@@ -200,7 +203,7 @@ src/combine.o: src/combine.cc.o
 
 # target to build an object file
 src/combine.cc.o:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/combine.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/combine.cc.o
 .PHONY : src/combine.cc.o
 
 src/combine.i: src/combine.cc.i
@@ -209,7 +212,7 @@ src/combine.i: src/combine.cc.i
 
 # target to preprocess a source file
 src/combine.cc.i:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/combine.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/combine.cc.i
 .PHONY : src/combine.cc.i
 
 src/combine.s: src/combine.cc.s
@@ -218,7 +221,7 @@ src/combine.s: src/combine.cc.s
 
 # target to generate assembly for a file
 src/combine.cc.s:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/combine.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/combine.cc.s
 .PHONY : src/combine.cc.s
 
 src/dector_data_load.o: src/dector_data_load.cc.o
@@ -227,7 +230,7 @@ src/dector_data_load.o: src/dector_data_load.cc.o
 
 # target to build an object file
 src/dector_data_load.cc.o:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/dector_data_load.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/dector_data_load.cc.o
 .PHONY : src/dector_data_load.cc.o
 
 src/dector_data_load.i: src/dector_data_load.cc.i
@@ -236,7 +239,7 @@ src/dector_data_load.i: src/dector_data_load.cc.i
 
 # target to preprocess a source file
 src/dector_data_load.cc.i:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/dector_data_load.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/dector_data_load.cc.i
 .PHONY : src/dector_data_load.cc.i
 
 src/dector_data_load.s: src/dector_data_load.cc.s
@@ -245,7 +248,7 @@ src/dector_data_load.s: src/dector_data_load.cc.s
 
 # target to generate assembly for a file
 src/dector_data_load.cc.s:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/dector_data_load.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/dector_data_load.cc.s
 .PHONY : src/dector_data_load.cc.s
 
 src/function_trash.o: src/function_trash.cc.o
@@ -254,7 +257,7 @@ src/function_trash.o: src/function_trash.cc.o
 
 # target to build an object file
 src/function_trash.cc.o:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/function_trash.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/function_trash.cc.o
 .PHONY : src/function_trash.cc.o
 
 src/function_trash.i: src/function_trash.cc.i
@@ -263,7 +266,7 @@ src/function_trash.i: src/function_trash.cc.i
 
 # target to preprocess a source file
 src/function_trash.cc.i:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/function_trash.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/function_trash.cc.i
 .PHONY : src/function_trash.cc.i
 
 src/function_trash.s: src/function_trash.cc.s
@@ -272,7 +275,7 @@ src/function_trash.s: src/function_trash.cc.s
 
 # target to generate assembly for a file
 src/function_trash.cc.s:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/function_trash.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/function_trash.cc.s
 .PHONY : src/function_trash.cc.s
 
 src/main_template.o: src/main_template.cc.o
@@ -281,7 +284,7 @@ src/main_template.o: src/main_template.cc.o
 
 # target to build an object file
 src/main_template.cc.o:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/main_template.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/main_template.cc.o
 .PHONY : src/main_template.cc.o
 
 src/main_template.i: src/main_template.cc.i
@@ -290,7 +293,7 @@ src/main_template.i: src/main_template.cc.i
 
 # target to preprocess a source file
 src/main_template.cc.i:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/main_template.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/main_template.cc.i
 .PHONY : src/main_template.cc.i
 
 src/main_template.s: src/main_template.cc.s
@@ -299,7 +302,7 @@ src/main_template.s: src/main_template.cc.s
 
 # target to generate assembly for a file
 src/main_template.cc.s:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/main_template.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/src/main_template.cc.s
 .PHONY : src/main_template.cc.s
 
 test_ve.o: test_ve.C.o
@@ -308,7 +311,7 @@ test_ve.o: test_ve.C.o
 
 # target to build an object file
 test_ve.C.o:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/test_ve.C.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/test_ve.C.o
 .PHONY : test_ve.C.o
 
 test_ve.i: test_ve.C.i
@@ -317,7 +320,7 @@ test_ve.i: test_ve.C.i
 
 # target to preprocess a source file
 test_ve.C.i:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/test_ve.C.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/test_ve.C.i
 .PHONY : test_ve.C.i
 
 test_ve.s: test_ve.C.s
@@ -326,7 +329,7 @@ test_ve.s: test_ve.C.s
 
 # target to generate assembly for a file
 test_ve.C.s:
-	$(MAKE) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/test_ve.C.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ve.C_exe.dir/build.make CMakeFiles/test_ve.C_exe.dir/test_ve.C.s
 .PHONY : test_ve.C.s
 
 # Help Target

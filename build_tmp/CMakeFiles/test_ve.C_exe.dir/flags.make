@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/afs/ihep.ac.cn/users/l/luoxj/root_tool/include -I/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/ROOT/6.20.02/include -I/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v1r0-Pre2/ExternalLibs/Geant4/10.04.p02/include/Geant4 
+CXX_INCLUDES = -I/afs/ihep.ac.cn/users/l/luoxj/root_tool/include -I/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/ROOT/6.20.02/include -I/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/ExternalLibs/Geant4/10.04.p02/include/Geant4 
 

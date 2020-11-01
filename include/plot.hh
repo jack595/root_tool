@@ -13,6 +13,7 @@
 #include<TLegend.h>
 #include"TGraph2D.h"
 #include<vector>
+#include "TLegend.h"
 #include"type_transform.hh"
 using namespace std;
 template <class T>
@@ -325,5 +326,27 @@ void test_plot_into_pdf()
     }
     v2D_TH1D_toPDF.resize(n_line_to_pdf);
     plot_into_pdf(v2D_TH1D_toPDF);
-
 }
+
+TLegend* getLegend( vector<TH1D*> v_h, vector<TString> v_str )
+{
+    TLegend* legend=new TLegend(0.6,0.6,0.9,0.9);
+    for (int i = 0; i < v_h.size(); i++)
+    {
+        v_h[i]->SetStats(false);
+        legend->AddEntry(v_h[i],v_str[i]);
+    }
+    return legend;
+}
+//TLegend* getLegend( vector<TProfile*> v_h, vector<TString> v_str )
+//{
+//    TLegend* legend=new TLegend(0.6,0.6,0.9,0.9);
+//    for (int i = 0; i < v_h.size(); i++)
+//    {
+//        v_h[i]->SetStats(false);
+//        legend->AddEntry(v_h[i],v_str[i]);
+//    }
+//    return legend;
+//}
+
+

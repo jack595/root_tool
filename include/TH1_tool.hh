@@ -105,6 +105,22 @@ std::vector<float> Min_subbin(TH1F *h1,float min_range,float max_range)
     h->GetXaxis()->SetRange(h_min_bin,h_max_bin);
     return min_series;
 }
+std::vector<float> Min_subbin(TH1D *h1,float min_range,float max_range)
+{
+//this function is used to find the maxmium point's location of histgram,return(x_max,y_min)
+    float min,min_loc;
+    TH1D *h=(TH1D*) h1;
+    int h_min_bin=h1->GetXaxis()->GetXmin();
+    int h_max_bin=h1->GetXaxis()->GetXmax();
+    h->GetXaxis()->SetRange(min_range,max_range);
+//    h->Draw();
+    min=h->GetMinimum();
+    float min_bin=h->GetMaximumBin();
+    min_loc=h->GetBinCenter(min_bin);
+    std::vector<float> min_series={min_loc,min};
+    h->GetXaxis()->SetRange(h_min_bin,h_max_bin);
+    return min_series;
+}
 
 vector<float>find_max_extremum(TH1F *h,int scan_step=1)
 {
